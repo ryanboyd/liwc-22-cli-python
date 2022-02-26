@@ -150,7 +150,7 @@ subprocess.call(cmd_to_execute)
 # However, if you insist...
 
 # The string that we would like to analyze.
-inputString = r"This is some text that I would like to analyze. After it has finished, I will say \"Thank you, LIWC!\""
+inputString = "This is some text that I would like to analyze. After it has finished, I will say \"Thank you, LIWC!\""
 
 # For this one, let's save our result as a newline-delimited json file (.ndjson)
 outputLocation = 'C:/Users/Ryan/Datasets/LIWC-22 Results from String.ndjson'
