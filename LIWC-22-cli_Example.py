@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Ryan L. Boyd
-# 2022-02-26
+# 2022-03-08
 
 #      _      _______          _______    ___  ___            _ _   ______                           _
 #     | |    |_   _\ \        / / ____|  |__ \|__ \          | (_) |  ____|                         | |
@@ -147,6 +147,12 @@ subprocess.call(cmd_to_execute)
 
 # What if we want to simply pass a string to the CLI for analysis? This is possible. As described on the
 # Help section of the liwc.app website, this is generally not recommended as it will not be very performant.
+#
+# Also, of serious importance! Most command lines/terminals have a limit on the length of any string that it
+# will parse. This means that you likely cannot analyze very long texts (e.g., like a long paper, speech,
+# or book) by passing the text directly into the console. Instead, you will likely need to process your
+# data directly from the disk instead.
+#
 # However, if you insist...
 
 # The string that we would like to analyze.
