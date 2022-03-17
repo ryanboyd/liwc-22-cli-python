@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Ryan L. Boyd
-# 2022-03-08
+# 2022-03-17
 
 #      _      _______          _______    ___  ___            _ _   ______                           _
 #     | |    |_   _\ \        / / ____|  |__ \|__ \          | (_) |  ____|                         | |
@@ -187,3 +187,28 @@ subprocess.call(cmd_to_execute)
 #"space": 0,"visual": 0,"auditory": 0,"feeling": 0,"time": 10,"focuspast": 0,"focuspresent": 10,"focusfuture": 5,
 #"Conversation": 0,"netspeak": 0,"assent": 0,"nonflu": 0,"filler": 0,
 #"AllPunc": 30,"Period": 5,"Comma": 10,"QMark": 0,"Exclam": 5,"Apostro": 0,"OtherP": 10}
+
+
+
+# And, lastly — what if we want to get the output directly from the command line or terminal as a json string?
+# Why, we can do that too!
+
+
+inputString = "This is some text that I would like to analyze. After it has finished," \
+              " we will get results in the console. Hooray!"
+outputLocation = "console"
+
+cmd_to_execute = ["LIWC-22-cli",
+                  "--mode", "wc",
+                  "--input", "console",
+                  "--console-text", inputString,
+                  "--output", outputLocation]
+
+# Let's go ahead and run this analysis. We do this somewhat differently than what we've been doing, however.
+# This will end up giving us a list, where each element is a line of output from the console.
+results = subprocess.check_output(cmd_to_execute, shell=True).strip().splitlines()
+
+# In this case, the item that we want to parse from a json to a Python dictionary is in results[1], so we will
+# go right ahead and parse that to a dictionary now:
+import json
+results_json = json.loads(results[1])
